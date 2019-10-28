@@ -43,7 +43,7 @@ ID	bytes		function			formula
 	1		i-stop 				byte[1] == 2 ( 0x02) = disabled 
 							byte[1] == 0 ( 0x00) = enabled
 							byte[1] == 4 ( 0x04) = running
-	special note: pressing the istop button
+	special note: when pressing the istop button
 	the bits 7 and 5 are set to high in 
 	12-14 consecutive messages
 
