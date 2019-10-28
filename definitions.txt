@@ -1,0 +1,281 @@
+{
+    "201":
+    [
+       {
+            "name": "Throt. Ped. Pos.",
+            "func": "byte_by_val",
+            "kwargs": {"byte_position": 6, "val": 2.778},
+            "unit": "%",
+            "result": 0.0
+       }
+    ],
+    "202":
+    [
+       {
+            "name": "Speed",
+            "func": "word_by_val",
+            "kwargs": {"hi_byte": 2, "lo_byte": 3, "val": 100},
+            "unit": "km/h",
+            "result": 0.0
+       },
+       {
+            "name": "RPM",
+            "func": "word_by_val",
+            "kwargs": {"hi_byte": 0, "lo_byte": 1, "val": 4},
+            "unit": "rev/min",
+            "result": 0.0
+       }
+    ],
+    "420":
+    [
+        {
+            "name": "Coolant Temp.",
+            "func": "byte_minus_val",
+            "kwargs": {"byte_position": 0, "val": 40},
+            "unit": "deg. C",
+            "result": 0.0
+        },
+        {
+            "name": "Inlet Air Temp.",
+            "func": "byte_minus_val",
+            "kwargs": {"byte_position": 7, "val": 40},
+            "unit": "deg. C",
+            "result": 0.0
+        }
+    ],
+    "43E":
+    [
+       {
+            "name": "Doors UnLocked",
+            "func": "bit_is_set",
+            "kwargs": {"byte_position": 3, "offset": 1},
+            "unit": "state",
+            "result": 0
+       },
+       {
+            "name": "Door FL",
+            "func": "bit_is_set",
+            "kwargs": {"byte_position": 4, "offset": 5},
+            "unit": "state",
+            "result": 0
+       },
+       {
+            "name": "Door FR",
+            "func": "bit_is_set",
+            "kwargs": {"byte_position": 4, "offset": 4},
+            "unit": "state",
+            "result": 0
+       },
+       {
+            "name": "Door RL",
+            "func": "bit_is_set",
+            "kwargs": {"byte_position": 4, "offset": 3},
+            "unit": "state",
+            "result": 0
+       },
+       {
+            "name": "Door RR",
+            "func": "bit_is_set",
+            "kwargs": {"byte_position": 4, "offset": 2},
+            "unit": "state",
+            "result": 0
+       },
+       {
+            "name": "Brake  - sig 1",
+            "func": "byte_is_equal",
+            "kwargs": {"byte_position": 6, "val": 40},
+            "unit": "state",
+            "result": 0
+       }
+    ],
+    "165":
+    [
+       {
+            "name": "Brake  - sig 2",
+            "func": "bit_is_set",
+            "kwargs": {"byte_position": 0, "offset": 7},
+            "unit": "state",
+            "result": 0
+       },
+       {
+            "name": "Brake  - sig 3",
+            "func": "bit_is_set",
+            "kwargs": {"byte_position": 0, "offset": 4},
+            "unit": "state",
+            "result": 0
+       }
+    ],
+    "09A":
+    [
+       {
+            "name": "Turn Sig. Left On",
+            "func": "bit_is_set",
+            "kwargs": {"byte_position": 2, "offset": 2},
+            "unit": "state",
+            "result": 0
+       },
+       {
+            "name": "Turn Sig. Right On",
+            "func": "bit_is_set",
+            "kwargs": {"byte_position": 2, "offset": 3},
+            "unit": "state",
+            "result": 0
+       },
+       {
+            "name": "Lights On",
+            "func": "bit_is_set",
+            "kwargs": {"byte_position": 2, "offset": 4},
+            "unit": "state",
+            "result": 0
+       },
+       {
+            "name": "Low Washer Fluid",
+            "func": "bit_is_set",
+            "kwargs": {"byte_position": 3, "offset": 6},
+            "unit": "state",
+            "result": 0
+       },
+       {
+            "name": "HighBeam On",
+            "func": "bit_is_set",
+            "kwargs": {"byte_position": 3, "offset": 0},
+            "unit": "state",
+            "result": 0
+       }
+    ],
+    "09F":
+    [
+       {
+            "name": "Handbrake",
+            "func": "bit_is_set",
+            "kwargs": {"byte_position": 0, "offset": 4},
+            "unit": "state",
+            "result": 0
+       }
+    ],
+    "215":
+    [
+       {
+            "name": "FL Wheel",
+            "func": "wheel_speed",
+            "kwargs": {"hi_byte": 0, "lo_byte": 1},
+            "unit": "km/h",
+            "result": 0
+       },
+       {
+            "name": "FR Wheel",
+            "func": "wheel_speed",
+            "kwargs": {"hi_byte": 2, "lo_byte": 3},
+            "unit": "km/h",
+            "result": 0
+       },
+       {
+            "name": "RL Wheel",
+            "func": "wheel_speed",
+            "kwargs": {"hi_byte": 4, "lo_byte": 5},
+            "unit": "km/h",
+            "result": 0
+       },
+       {
+            "name": "RR Wheel",
+            "func": "wheel_speed",
+            "kwargs": {"hi_byte": 6, "lo_byte": 7},
+            "unit": "km/h",
+            "result": 0
+       }
+    ],
+    "130":
+    [
+       {
+            "name": "iStop disabled",
+            "func": "byte_is_equal",
+            "kwargs": {"byte_position": 1, "val": 2},
+            "unit": "state",
+            "result": 0
+       },
+       {
+            "name": "iStop running",
+            "func": "byte_is_equal",
+            "kwargs": {"byte_position": 1, "val": 4},
+            "unit": "state",
+            "result": 0
+       }
+    ],
+    "050":
+    [
+       {
+            "name": "Ignition ON",
+            "func": "byte_value",
+            "kwargs": {"byte_position": 0},
+            "unit": "state",
+            "result": 0
+       },
+       {
+            "name": "Clutch On",
+            "func": "bit_is_set",
+            "kwargs": {"byte_position": 3, "offset": 1},
+            "unit": "state",
+            "result": 0
+       }
+    ],
+    "21D":
+    [
+       {
+            "name": "LIDAR Distance",
+            "func": "lidar_distance",
+            "kwargs": {"byte_position": 0},
+            "unit": "m",
+            "result": 0
+       }
+    ],
+    "086":
+    [
+       {
+            "name": "Steering Angle (?)",
+            "func": "steer_angle",
+            "kwargs": {"hi_byte": 0, "lo_byte": 1},
+            "unit": "deg. ( +l / -r)",
+            "result": 0
+       }
+    ],
+    "40A":
+    [
+       {
+            "name": "Odometer - total",
+            "func": "special_ids_40a",
+            "kwargs": {"idx1": 192, "idx2": 1, "p1": 3, "p2": 4, "p3": 5, "sub": "odo" },
+            "unit": "km",
+            "result": 0
+       },
+       {
+            "name": "Outside temp.",
+            "func": "special_ids_40a",
+            "kwargs": {"idx1": 192, "idx2": 1, "p1": 7, "sub": "outtemp" },
+            "unit": "deg. C",
+            "result": 0
+       },
+       {
+            "name": "VIN P1",
+            "func": "special_ids_40a",
+            "kwargs": {"idx1": 193, "idx2": 0, "sub": "vin1" },
+            "unit": "---",
+            "result": 0
+       },
+       {
+            "name": "VIN P2",
+            "func": "special_ids_40a",
+            "kwargs": {"idx1": 193, "idx2": 1, "sub": "vin2" },
+            "unit": "---",
+            "result": 0
+       },
+       {
+            "name": "VIN P3",
+            "func": "special_ids_40a",
+            "kwargs": {"idx1": 193, "idx2": 2, "sub": "vin3" },
+            "unit": "---",
+            "result": 0
+       }
+    ]
+}
+
+

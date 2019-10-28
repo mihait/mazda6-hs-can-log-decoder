@@ -1,0 +1,75 @@
+ID	bytes		function			formula
+201	
+	6		throttle pedal position  	byte[6]/2.778 %
+
+202	2,3		speed				(byte[2] * 256 + byte[3]) / 100
+	0,1		rpm				(byte[0] * 256 + byte[1]) / 4
+420
+	0		coolant temp			byte[0] - 40
+	7		inlet air temp			byte[7] - 40
+
+43E
+	3		doors unlocked			byte[3] >> 1 & 1
+	4		front left door open		byte[4] >> 5 & 1
+	4		frond right door open		byte[4] >> 4 & 1
+	4		rear left door open		byte[4] >> 3 & 1
+	4		rear right door open		byte[4] >> 2 & 1
+	6		brake signal			byte[6] == 40 ( 0x28)
+
+165
+	0		brake signal			byte[0] >> 7 & 1
+	0		brake signal			byte[0] >> 4 & 1
+
+09A
+	2		turn sig. left			byte[2] >> 2 & 1
+	2		left sig. turn			byte[2] >> 3 & 1
+	2		low beam on 			byte[2] >> 4 & 1   (not sure)
+	3		low washer fluid		byte[3] >> 6 & 1   (not sure)
+	3		high beam on 			byte[3] >> 0 & 1   (not sure)
+
+09F
+	0		hand/park brake			byte[0] >> 4 & 1
+
+215
+	0,1		FL wheel speed			(byte[0] * 256 + byte[1] - 1000)/100
+	2,3		FR wheel speed			(byte[2] * 256 + byte[3] - 1000)/100
+	4,5		RL wheel speed 			(byte[4] * 256 + byte[5] - 1000)/100
+	6,7		RR wheel speed			(byte[6] * 256 + byte[7] - 1000)/100
+
+	default start value b[hi] 27, b[lo] 10
+	will return FF FF if no signal
+
+130
+	1		i-stop 				byte[1] == 2 ( 0x02) = disabled 
+							byte[1] == 0 ( 0x00) = enabled
+							byte[1] == 4 ( 0x04) = running
+	special note: pressing the istop button
+	the bits 7 and 5 are set to high in 
+	12-14 consecutive messages
+
+
+050
+	0		ignition status			byte[0] == 0  ACC OFF
+							byte[0] == 1  ACC ON
+							byte[0] == 2  Engine ON
+	3		clutch in			byte[3] >> 1 & 1 Clutch pedal pressed
+
+21D
+	0		Lidar distance			(byte[0]/2.54)/10 distance in meters
+							0x7F - target lost
+
+086
+	0,1		steering angle			(byte[0] * 256 + byte[1] ) * 0.1 - 1600  ( not sure )
+
+40A	
+	3,4,5		odometer total 			byte[3]*256*256 + byte[4]*256 + byte[5]
+							when byte[0] = 0xC0 and byte[1] = 0x00
+
+	7		outside temp			byte[7] - 40
+							when byte[0] = 0xC0 and byte[1] = 0x00
+
+	2,3,4,5,6,7	VIN part 1			hex to ascii, when byte[0] == 0xC1 and byte[1] == 0x00
+	2,3,4,5,6,7	VIN part 2			hex to ascii, when byte[0] == 0xC1 and byte[1] == 0x01
+	2,3,4,5,6,6	VIN part 3			hex to ascii, when byte[0] == 0xC1 and byte[1] == 0x02
+
+
