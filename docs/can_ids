@@ -22,7 +22,7 @@ ID	bytes		function			formula
 
 09A
 	2		turn sig. left			byte[2] >> 2 & 1
-	2		left sig. turn			byte[2] >> 3 & 1
+	2		turn sig. right			byte[2] >> 3 & 1
 	2		low beam on 			byte[2] >> 4 & 1   (not sure)
 	3		low washer fluid		byte[3] >> 6 & 1   (not sure)
 	3		high beam on 			byte[3] >> 0 & 1   (not sure)

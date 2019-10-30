@@ -22,7 +22,7 @@ data_log = sys.argv[1]
 data = []
 
 
-#hangle sigterm, siginit so curses doesn't break the term
+#handle sigterm, siginit so curses doesn't break the term
 def sigterm_handler(_signo, _stack_frame):
     curses.nocbreak()
     stdscr.keypad(False)
