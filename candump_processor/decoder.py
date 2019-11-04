@@ -2,6 +2,7 @@
 import json 
 import codecs
 from collections import OrderedDict 
+import sys
 
 
 class decoder():
@@ -18,6 +19,10 @@ class decoder():
                     j['result'] = result
 
     def _update_value(self, payload, func, **kwargs):
+
+        if func in ('byte_by_val', 'word_by_val'):
+            if kwargs['val'] == 0:
+                raise Exception("Division by 0. Please check your definitions file. Exiting ...")
 
         if func == "bit_is_set":
             return self._bit_is_set(payload, **kwargs)

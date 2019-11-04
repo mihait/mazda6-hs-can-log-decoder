@@ -53,3 +53,9 @@ Parse results:
 $ ./dumb_log_parser.py candumo-<date>-<time>.log
 ```
 
+Output demo:
+
+[![asciicast](https://asciinema.org/a/279110.svg)](https://asciinema.org/a/279110)
+
+
+

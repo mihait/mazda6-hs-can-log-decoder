@@ -105,17 +105,34 @@
             "result": 0
        }
     ],
+    "091":
+    [
+       {
+            "name": "Turn Left Sw.",
+            "func": "byte_is_equal",
+            "kwargs": {"byte_position": 1, "val": 32},
+            "unit": "state",
+            "result": 0
+       },
+       {
+            "name": "Turn Right Sw.",
+            "func": "byte_is_equal",
+            "kwargs": {"byte_position": 1, "val": 16},
+            "unit": "state",
+            "result": 0
+       }
+    ],
     "09A":
     [
        {
-            "name": "Turn Sig. Left On",
+            "name": "Turn Left Blink",
             "func": "bit_is_set",
             "kwargs": {"byte_position": 2, "offset": 2},
             "unit": "state",
             "result": 0
        },
        {
-            "name": "Turn Sig. Right On",
+            "name": "Turn Right Blink",
             "func": "bit_is_set",
             "kwargs": {"byte_position": 2, "offset": 3},
             "unit": "state",

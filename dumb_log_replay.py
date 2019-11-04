@@ -21,13 +21,17 @@ data_log = sys.argv[1]
 #can log data
 data = []
 
-
-#handle sigterm, siginit so curses doesn't break the term
-def sigterm_handler(_signo, _stack_frame):
+def restore_term():
+    #curses end
     curses.nocbreak()
     stdscr.keypad(False)
     curses.echo()
     curses.endwin()
+
+
+#handle sigterm, siginit so curses doesn't break the term
+def sigterm_handler(_signo, _stack_frame):
+    restore_term()
     #exit
     sys.exit(0)
 
@@ -58,7 +62,7 @@ def redraw(mapp):
             else:
                 stdscr.addstr(j, l, "{:<24}: {:<8.0f} {}".format(k["name"], k["result"], k["unit"]))
             j+=1
-            if j == 25:
+            if j == 20:
                 l = 55
                 j = 2
 
@@ -75,16 +79,10 @@ try:
         redraw(data_decoder.output())
         stdscr.refresh()
 
-
 except Exception as e:
-    raise(e)
-
-#curses end
-curses.nocbreak()
-stdscr.keypad(False)
-curses.echo()
-curses.endwin()
+    restore_term()
+    raise
 
 
-
+restore_term()
 
