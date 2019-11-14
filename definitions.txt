@@ -37,8 +37,8 @@
         },
         {
             "name": "Inlet Air Temp.",
-            "func": "byte_minus_val",
-            "kwargs": {"byte_position": 7, "val": 40},
+            "func": "byte_by_val",
+            "kwargs": {"byte_position": 7, "val": 4},
             "unit": "deg. C",
             "result": 0.0
         }

@@ -6,7 +6,7 @@ ID	bytes		function			formula
 	0,1		rpm				(byte[0] * 256 + byte[1]) / 4
 420
 	0		coolant temp			byte[0] - 40
-	7		inlet air temp			byte[7] - 40
+	7		inlet air temp			byte[7] / 40
 
 43E
 	3		doors unlocked			byte[3] >> 1 & 1
@@ -20,9 +20,13 @@ ID	bytes		function			formula
 	0		brake signal			byte[0] >> 7 & 1
 	0		brake signal			byte[0] >> 4 & 1
 
+091
+	1		turn left switch on		byte[1]	== 32 (0x20)
+	1		turn right switch on		byte[1] == 16 (0x10)
+
 09A
-	2		turn sig. left			byte[2] >> 2 & 1
-	2		turn sig. right			byte[2] >> 3 & 1
+	2		turn blink left			byte[2] >> 2 & 1
+	2		turn blink right		byte[2] >> 3 & 1
 	2		low beam on 			byte[2] >> 4 & 1   (not sure)
 	3		low washer fluid		byte[3] >> 6 & 1   (not sure)
 	3		high beam on 			byte[3] >> 0 & 1   (not sure)
@@ -62,6 +66,13 @@ ID	bytes		function			formula
 	0,1		steering angle			(byte[0] * 256 + byte[1] ) * 0.1 - 1600  ( not sure )
 
 40A	
+
+	note:
+	- this id contains multiple data like odometer (total), outside temp, and the full
+	car configuration
+	- the first and second bytes ( byte 0 and 1 ) play a selector role
+	and the rest of them ( bytes 2 .. 7 ) contain the actual payload
+
 	3,4,5		odometer total 			byte[3]*256*256 + byte[4]*256 + byte[5]
 							when byte[0] = 0xC0 and byte[1] = 0x00
 
