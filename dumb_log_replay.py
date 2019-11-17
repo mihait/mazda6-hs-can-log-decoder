@@ -63,7 +63,7 @@ def redraw(mapp):
                 stdscr.addstr(j, l, "{:<24}: {:<8.0f} {}".format(k["name"], k["result"], k["unit"]))
             j+=1
             if j == 20:
-                l = 55
+                l = l + 55
                 j = 2
 
 

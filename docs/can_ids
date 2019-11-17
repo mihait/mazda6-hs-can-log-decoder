@@ -74,10 +74,10 @@ ID	bytes		function			formula
 	and the rest of them ( bytes 2 .. 7 ) contain the actual payload
 
 	3,4,5		odometer total 			byte[3]*256*256 + byte[4]*256 + byte[5]
-							when byte[0] = 0xC0 and byte[1] = 0x00
+							when byte[0] = 0xC0 and byte[1] = 0x01
 
 	7		outside temp			byte[7] - 40
-							when byte[0] = 0xC0 and byte[1] = 0x00
+							when byte[0] = 0xC0 and byte[1] = 0x01
 
 	2,3,4,5,6,7	VIN part 1			hex to ascii, when byte[0] == 0xC1 and byte[1] == 0x00
 	2,3,4,5,6,7	VIN part 2			hex to ascii, when byte[0] == 0xC1 and byte[1] == 0x01
